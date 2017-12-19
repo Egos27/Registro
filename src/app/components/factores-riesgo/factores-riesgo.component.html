@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="container-fluid row" *ngIf="loading">
+    <app-loading class="col-xs-12 col-sm-offset-4 col-sm-4 col-lg-offset-4 col-lg-4"></app-loading>
+  </div>
+  <div class=“container-fluid” *ngIf="!loading">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-slide-toggle [(ngModel)]="hipertension">Hipertensión Arterial </md-slide-toggle>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-slide-toggle [(ngModel)]="diabetes">Diabetes</md-slide-toggle>
+      </div>
+    </div>
+    <div class="row" *ngIf="diabetes">
+      <div class="col-lg-6 col-lg-offset-1 col-md-6 col-sm-6 col-xs-12">
+        <md-slide-toggle [(ngModel)]="insulina">¿Tratamiento con insulina?</md-slide-toggle>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <h4>Tabaquismo </h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-radio-group [(ngModel)]="tabaquismo">
+          <md-radio-button value="1">Fumador actual</md-radio-button>
+          <md-radio-button value="2">Ex fumador</md-radio-button>
+          <md-radio-button value="3">No fumador</md-radio-button>
+        </md-radio-group>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-slide-toggle [(ngModel)]="antecedentes">Antecedentes Familiares</md-slide-toggle>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-slide-toggle [(ngModel)]="dislipemia">Dislipemia</md-slide-toggle>
+      </div>
+    </div>    
+  </div>
+</div>

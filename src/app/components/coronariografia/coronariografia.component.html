@@ -1,0 +1,145 @@
+<div class="container">
+  <div class="container-fluid row" *ngIf="loading">
+    <app-loading class="col-xs-12 col-sm-offset-4 col-sm-4 col-lg-offset-4 col-lg-4"></app-loading>
+  </div>
+  <div class=“container-fluid” *ngIf="!loading">
+    <div class="row">
+      <br>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+        Dominancia
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <md-radio-group [(ngModel)]="Dominancia">
+          <md-radio-button value="1">Derecha</md-radio-button>
+          <md-radio-button value="2">Izquierda</md-radio-button>
+          <md-radio-button value="3">Balanceada</md-radio-button>
+        </md-radio-group>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <md-card>Obstrucción severa: TCI ≥ 50% otro vaso ≥ 70%</md-card>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="TCIProximal">TCI Proximal </md-checkbox>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="RamoIntermedio">Ramo Intermedio </md-checkbox>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="TCIMedio">TCI Medio</md-checkbox>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="LV1">LV1°</md-checkbox>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="TCIDistal">TCI Distal</md-checkbox>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="LV2">LV2°</md-checkbox>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="DAProximal">DA Proximal</md-checkbox>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="CDProximal">CD Proximal</md-checkbox>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="DAMedio">DA Medio</md-checkbox>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="CDMedio">CD Medio</md-checkbox>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="DADistal">DA Distal</md-checkbox>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="CDDistal">CD Distal</md-checkbox>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="Diagonal1">1° Diagonal</md-checkbox>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="DescPost">Desc. Post.</md-checkbox>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="Diagonal2">2° Diagonal</md-checkbox>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="PuenteMamario">Puente Mamario</md-checkbox>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="CxProximal">Cx Proximal</md-checkbox>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="PuenteVenoso1">Puente Venoso 1</md-checkbox>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="CxDistal">Cx Distal</md-checkbox>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="PuenteVenoso2">Puente Venoso 2</md-checkbox>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+        Cantidad de vasos con obstrucción severa
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-radio-group placeholder="Cantidad de vasos con obstrucción severa" [(ngModel)]="cantSevera">
+
+          <md-radio-button [value]="1">1 </md-radio-button>
+          <md-radio-button [value]="2">2</md-radio-button>
+          <md-radio-button [value]="3">3</md-radio-button>
+          <md-radio-button [value]="4">>3</md-radio-button>
+        </md-radio-group>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+        Cantidad de vasos a tratar
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-radio-group placeholder="Cantidad de vasos a tratar " [(ngModel)]="cantVasos">
+          <md-radio-button [value]="1">1 </md-radio-button>
+          <md-radio-button [value]="2">2</md-radio-button>
+          <md-radio-button [value]="3">3</md-radio-button>
+          <md-radio-button [value]="4">>3</md-radio-button>
+        </md-radio-group>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+        <md-checkbox [(ngModel)]="Syntax">Syntax Score</md-checkbox>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" *ngIf="Syntax">
+        <md-input-container>
+          <input mdInput placeholder="Score" [(ngModel)]="Score" required>
+        </md-input-container>
+      </div>
+    </div>
+  </div>
+</div>

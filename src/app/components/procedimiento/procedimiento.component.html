@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+    <md-select placeholder="Procedimiento numero" [(ngModel)]="procedimientoActual">
+      <md-option *ngFor="let prod of Procedimientos" [value]="prod"> {{prod.numero}}</md-option>
+    </md-select>
+    <button type="button" class="btn btn-default btn-sm" (click)="Agregar()">
+      <span class="glyphicon glyphicon-plus"  ></span>
+    </button>
+
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-offset-1 col-lg-11 col-md-offset-1 col-md-11 col-xs-12">
+    <md-tab-group *ngIf="procedimientoActual">
+      <md-tab label="Procedimiento">
+        <app-general-procedimiento [general]="procedimientoActual.general"></app-general-procedimiento>
+      </md-tab>
+      <md-tab label="Obstrucciones">
+        <app-obstruccion [obstrucciones]="procedimientoActual.obstrucciones"></app-obstruccion>
+      </md-tab>
+      <md-tab label="Sten Colocados">        
+      </md-tab>
+      <md-tab label="Resultados">
+      </md-tab>
+      <md-tab label="Complicaciones">
+      </md-tab>
+    </md-tab-group>
+  </div>
+</div>

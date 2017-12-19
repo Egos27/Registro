@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="container-fluid row" *ngIf="loading">
+    <app-loading class="col-xs-12 col-sm-offset-4 col-sm-4 col-lg-offset-4 col-lg-4"></app-loading>
+  </div>
+  <div class=“container-fluid” *ngIf="!loading">
+    <div class="row">
+      <div class="col-lg-4 col-lg-offset-2  col-md-4 col-sm-6 col-xs-12">
+        <md-input-container>
+          <input mdInput #focusable placeholder="Usuario" [(ngModel)]="user.usuario" required>
+        </md-input-container>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 col-lg-offset-2  col-md-4 col-sm-6 col-xs-12">
+        <md-input-container>
+          <input mdInput #password type="password" (keypress)="changePass($event,focusable)" placeholder="Password" [(ngModel)]="user.password"
+            required/>
+        </md-input-container>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 col-lg-offset-2  col-md-4 col-sm-6 col-xs-12">
+        <label [hidden]="!error">Verifique los parametros ingresados</label>
+      </div>
+    </div>
+    <div class="row">
+      <label class="col-lg-3 col-lg-offset-1  col-md-offset-1 col-md-3 col-sm-6 col-xs-12"><input  type="checkbox" [(ngModel)]="recuperar" > Olvide mi contraseña </label>
+      <input class="col-lg-1 col-lg-offset-4  col-md-offset-4 col-md-4 col-sm-6 col-xs-12 <btn-info></btn-info> " type="button" (click)="enviar()"
+        value="Ingresar" />
+    </div>
+      <div class="row">
+        <br>
+        </div>
+      <div class="row">
+        <br>
+        </div>
+    <div class="row" *ngIf="recuperar">
+      <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
+        <md-input-container>          
+           <input mdInput #mail type="mail" (keypress)="changePass($event,mail)" placeholder="Email" [(ngModel)]="user.mail" required/> 
+        </md-input-container>
+      </div>
+
+      <label class="col-lg-5  col-md-5 col-sm-6 col-xs-12 "> Ingrese el email registrado para que le envie la nueva clave </label><input class="col-lg-1  col-md-4 col-sm-6 col-xs-12 btn-info " type="button" (click)="reestablecer()" value="Restablecer"/> 
+    </div>
+
+
+  </div>
+</div>

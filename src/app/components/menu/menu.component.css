@@ -1,0 +1,8 @@
+.bienvenido {
+    color: slategray;
+    font-family: inherit;
+    font-size: inherit;
+    padding-top: 2px;
+    border-style: inset;
+    font-weight: bold;
+}

@@ -1,0 +1,17 @@
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">      
+    </div>
+    <div class="col-md-offset-9 col-md-3 bienvenido" *ngIf="auth.isLogued();">Bienvenido {{nombre()}}</div>      
+    <ul class="nav navbar-nav">    
+      <li *ngIf="auth.isLogued()"><a routerLink="/Registro" routerLinkActive="active">Ingresar Registro</a></li>      
+      <li *ngIf="!auth.isLogued();"><a  routerLink="/Login" routerLinkActive="active">Entrar</a></li>
+      <li *ngIf="auth.isLogued();"><a routerLink="/cambiarPass" routerLinkActive="active">Modificar Contraseña</a></li>            
+      <li *ngIf="auth.isLogued();"><a [routerLink]="[]" (click)="salir()" routerLinkActive="active">Salir</a></li>            
+    </ul>    
+  </div>
+</nav>

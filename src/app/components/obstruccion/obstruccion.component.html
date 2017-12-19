@@ -1,0 +1,237 @@
+<div class="container">
+  <div class="container-fluid row" *ngIf="loading">
+    <app-loading class="col-xs-12 col-sm-offset-4 col-sm-4 col-lg-offset-4 col-lg-4"></app-loading>
+  </div>
+  <div class=“container-fluid” *ngIf="!loading">
+    <div class="row">
+      <h2> Caracteristica de la obstruccion </h2>
+    </div>
+    <div class="row">
+      <md-select placeholder="Numero de Obstruccion" [(ngModel)]="obstruccionActual">
+        <md-option *ngFor="let obs of obstrucciones" [value]="obs"> {{obs.numero}}</md-option>
+      </md-select>
+      <button type="button" class="btn btn-default btn-sm" (click)="Agregar()">
+        <span class="glyphicon glyphicon-plus"  ></span>
+      </button>
+    </div>
+  </div>
+  <div class=“container-fluid” *ngIf="buscar()">
+    <div class="row">
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="obstruccionActual.TCIProximal">TCI Proximal Severa</md-checkbox>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="obstruccionActual.TCIProximalTratada">Tratada </md-checkbox>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="obstruccionActual.RamoIntermedio">Ramo Intermedio Severa</md-checkbox>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="obstruccionActual.RamoIntermedioTratada">Tratada </md-checkbox>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="obstruccionActual.TCIMedio">TCI Medio Severa</md-checkbox>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="obstruccionActual.TCIMedioTratada">Tratada </md-checkbox>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="obstruccionActual.LV1">LV1° Severa</md-checkbox>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="obstruccionActual.LV1Tratada">Tratada </md-checkbox>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="obstruccionActual.TCIDistal">TCI Distal Severa</md-checkbox>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="obstruccionActual.TCIDistalTratada">Tratada </md-checkbox>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="obstruccionActual.LV2">LV2° Severa</md-checkbox>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="obstruccionActual.LV2Tratada">Tratada </md-checkbox>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="obstruccionActual.DAProximal">DA Proximal Severa</md-checkbox>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="obstruccionActual.DAProximalTratada">Tratada </md-checkbox>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="obstruccionActual.CDProximal">CD Proximal Severa</md-checkbox>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="obstruccionActual.CDProximalTratada">Tratada </md-checkbox>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="obstruccionActual.DAMedio">DA Medio Severa</md-checkbox>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="obstruccionActual.DAMedioTratada">Tratada </md-checkbox>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="obstruccionActual.CDMedio">CD Medio Severa</md-checkbox>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="obstruccionActual.CDMedioTratada">Tratada </md-checkbox>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="obstruccionActual.DADistal">DA Distal Severa</md-checkbox>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="obstruccionActual.DADistalTratada">Tratada </md-checkbox>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="obstruccionActual.CDDistal">CD Distal Severa</md-checkbox>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="obstruccionActual.CDDistalTratada">Tratada </md-checkbox>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="obstruccionActual.Diagonal1">1° Diagonal Severa</md-checkbox>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="obstruccionActual.Diagonal1Tratada">Tratada </md-checkbox>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="obstruccionActual.DescPost">Desc. Post. Severa</md-checkbox>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="obstruccionActual.DescPostTratada">Tratada </md-checkbox>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="obstruccionActual.Diagonal2">2° Diagonal Severa</md-checkbox>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="obstruccionActual.Diagonal2Tratada">Tratada </md-checkbox>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="obstruccionActual.PuenteMamario">Puente Mamario Severa</md-checkbox>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="obstruccionActual.PuenteMamarioTratada">Tratada </md-checkbox>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="obstruccionActual.CxProximal">Cx Proximal Severa</md-checkbox>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="obstruccionActual.CxProximalTratada">Tratada </md-checkbox>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="obstruccionActual.PuenteVenoso1">Puente Venoso 1 Severa</md-checkbox>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="obstruccionActual.PuenteVenoso1Tratada">Tratada </md-checkbox>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="obstruccionActual.CxDistal">Cx Distal Severa</md-checkbox>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="obstruccionActual.CxDistalTratada">Tratada </md-checkbox>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="obstruccionActual.PuenteVenoso2">Puente Venoso 2 Severa</md-checkbox>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="obstruccionActual.PuenteVenoso2Tratada">Tratada </md-checkbox>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-slide-toggle [(ngModel)]="obstruccionActual.ostial">OSTIAL</md-slide-toggle>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-slide-toggle [(ngModel)]="obstruccionActual.reestenosis">REESTENOSIS</md-slide-toggle>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-slide-toggle [(ngModel)]="obstruccionActual.tortuosidad">TORTUOSIDAD SEVERA</md-slide-toggle>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-slide-toggle [(ngModel)]="obstruccionActual.oclusion">OCLUSIÓN</md-slide-toggle>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" *ngIf="obstruccionActual.oclusion">
+        <md-radio-group [(ngModel)]="obstruccionActual.tipoOclusion">
+          <md-radio-button value="1">Aguda</md-radio-button>
+          <md-radio-button value="2">Crónica</md-radio-button>
+        </md-radio-group>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" *ngIf="obstruccionActual.oclusion">
+        <md-slide-toggle [(ngModel)]="obstruccionActual.circulacionColateral">Circulación Colateral</md-slide-toggle>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" *ngIf="obstruccionActual.circulacionColateral">
+        <md-radio-group [(ngModel)]="obstruccionActual.tipoCirculacion">
+          <md-radio-button value="0">0</md-radio-button>
+          <md-radio-button value="1">1</md-radio-button>
+          <md-radio-button value="2">2</md-radio-button>
+          <md-radio-button value="3">3</md-radio-button>
+        </md-radio-group>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-slide-toggle [(ngModel)]="obstruccionActual.trombo">TROMBO</md-slide-toggle>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" *ngIf="obstruccionActual.trombo">
+        <h5>TIMI Trombo Score</h5>
+        <md-radio-group [(ngModel)]="obstruccionActual.tipoTrombo">
+          <md-radio-button value="1">1</md-radio-button>
+          <md-radio-button value="2">2</md-radio-button>
+          <md-radio-button value="3">3</md-radio-button>
+          <md-radio-button value="4">4</md-radio-button>
+          <md-radio-button value="5">5</md-radio-button>
+        </md-radio-group>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-slide-toggle [(ngModel)]="obstruccionActual.bifurcacion">BIFURCACIÓN</md-slide-toggle>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" *ngIf="obstruccionActual.bifurcacion">
+        <md-input-container>
+          <input mdInput placeholder="MEDINA" [(ngModel)]="obstruccionActual.medina" required>
+        </md-input-container>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-slide-toggle [(ngModel)]="obstruccionActual.calsificacion"> CALCIFICACIÓN</md-slide-toggle>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-slide-toggle [(ngModel)]="obstruccionActual.longitud"> LONGITUD > 20 mm</md-slide-toggle>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-slide-toggle [(ngModel)]="obstruccionActual.enfermedadDifusa"> ENFERMEDAD DIFUSA</md-slide-toggle>
+      </div>
+    </div>
+  </div>
+</div>

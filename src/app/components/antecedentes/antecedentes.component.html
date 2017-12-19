@@ -1,0 +1,120 @@
+<div class="container">
+  <div class="container-fluid row" *ngIf="loading">
+    <app-loading class="col-xs-12 col-sm-offset-4 col-sm-4 col-lg-offset-4 col-lg-4"></app-loading>
+  </div>
+  <div class=“container-fluid” *ngIf="!loading">
+    <div class="row">
+      <br>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-slide-toggle [(ngModel)]="Antecedentes.IAMprevio">IAM previo</md-slide-toggle>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-slide-toggle [(ngModel)]="Antecedentes.CRMPrevia">CRM Previa </md-slide-toggle>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" *ngIf="CRMPrevia">
+        <md-input-container>
+          <input mdInput type="date" placeholder="fecha" [(ngModel)]="Antecedentes.fechaCRM" required>
+        </md-input-container>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-slide-toggle [(ngModel)]="Antecedentes.ATCPrevia">ATC Previa </md-slide-toggle>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" *ngIf="ATCPrevia">
+        <md-input-container>
+          <input mdInput type="date" placeholder="fecha" [(ngModel)]="Antecedentes.fechaATC" required>
+        </md-input-container>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-slide-toggle [(ngModel)]="Antecedentes.ICC">ICC</md-slide-toggle>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-slide-toggle [(ngModel)]="Antecedentes.ACV">ACV</md-slide-toggle>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-slide-toggle [(ngModel)]="Antecedentes.Insuficiencia">Insuficiencia Renal</md-slide-toggle>
+      </div>
+    </div>
+    <div class="row" *ngIf="Insuficiencia">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-slide-toggle [(ngModel)]="Antecedentes.Dialisis">En Dialisis</md-slide-toggle>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" *ngIf="Dialisis">
+        <md-input-container>
+          <input mdInput type="text" placeholder="Creatinina en sangre" [(ngModel)]="Antecedentes.creatinina" required>
+        </md-input-container>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-slide-toggle [(ngModel)]="Antecedentes.eVasPer">Enfermedad vascular periférica </md-slide-toggle>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-slide-toggle [(ngModel)]="Antecedentes.Abdominal">Aneurisma de Aorta Abdominal </md-slide-toggle>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-slide-toggle [(ngModel)]="Antecedentes.Carotidea">Enfermedad Carotidea</md-slide-toggle>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-slide-toggle [(ngModel)]="Antecedentes.Menopausia">Menopausia precoz</md-slide-toggle>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-slide-toggle [(ngModel)]="Antecedentes.Hipotiroidismo">Hipotiroidismo</md-slide-toggle>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-slide-toggle [(ngModel)]="Antecedentes.EPOC">EPOC</md-slide-toggle>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-slide-toggle [(ngModel)]="Antecedentes.Valvulopatia">Valvulopatía (Moderada/Severa)</md-slide-toggle>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-select placeholder="Valvulopatia" [(ngModel)]="Antecedentes.tipoValvulopatia" *ngIf="Valvulopatia">
+          <md-option [value]="1">Estenosis Aórtica </md-option>
+          <md-option [value]="2">Insuficiencia Aórtica</md-option>
+          <md-option [value]="3">Enfermedad Aórtica</md-option>
+          <md-option [value]="4">Estenosis mitral</md-option>
+          <md-option [value]="5">Insuficiencia mitral</md-option>
+          <md-option [value]="6">Enfermedad mitral</md-option>
+        </md-select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <md-slide-toggle [(ngModel)]="Antecedentes.Miocardiopatia">Miocardiopatía</md-slide-toggle>
+      </div>    
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" *ngIf="Miocardiopatia">
+        <md-radio-group [(ngModel)]="Antecedentes.TipoMiocardiopatia">
+          <md-radio-button value="1">Restrictiva</md-radio-button>
+          <md-radio-button value="2">Hipertrófica</md-radio-button>
+          <md-radio-button value="3">Dilatada</md-radio-button>
+        </md-radio-group>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <md-slide-toggle [(ngModel)]="Antecedentes.Cardiopatia">Cardiopatía Congénita</md-slide-toggle>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" *ngIf="Cardiopatia">
+        <md-checkbox [(ngModel)]="Antecedentes.CardiCorregida">Corregida</md-checkbox>
+      </div>
+    </div>
+  </div>
+</div>

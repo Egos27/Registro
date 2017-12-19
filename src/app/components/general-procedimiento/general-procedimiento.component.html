@@ -1,0 +1,183 @@
+<div class="container">
+  <div class="container-fluid row" *ngIf="loading">
+    <app-loading class="col-xs-12 col-sm-offset-4 col-sm-4 col-lg-offset-4 col-lg-4"></app-loading>
+  </div>
+  <div class=“container-fluid” *ngIf="!loading">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <md-input-container>
+          <input mdInput type="date" placeholder="Fecha" [(ngModel)]="general.Fecha" required>
+        </md-input-container>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <h4>Vía de Acceso</h4>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <md-radio-group [(ngModel)]="general.viaAcceso">
+          <md-radio-button value="1">Radial</md-radio-button>
+          <md-radio-button value="2">Humeral</md-radio-button>
+          <md-radio-button value="3">Femoral</md-radio-button>
+        </md-radio-group>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <h4>Antiagregación Plaquetaria</h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="general.Aspirina">Aspirina</md-checkbox>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="general.Clopidogrel">Clopidogrel</md-checkbox>
+      </div>
+    </div>
+    <div class="row" *ngIf="!general.Aspirina">
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+        <b>Causa porque no utilizo aspirina</b>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+        <md-checkbox [(ngModel)]="general.Intolerancia">Intolerancia a la AAS</md-checkbox>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+        <md-checkbox [(ngModel)]="general.Hemorragia">Hemorragia digestiva</md-checkbox>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="general.Prasugrel">Prasugrel</md-checkbox>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="general.Ticagrelor">Ticagrelor</md-checkbox>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <h5>Anticoagulación para el Procedimiento</h5>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <md-radio-group [(ngModel)]="general.antiCoagulacion">
+          <md-radio-button value="1">Heparina Sódica</md-radio-button>
+          <md-radio-button value="2">Bivalirudina</md-radio-button>
+        </md-radio-group>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-slide-toggle [(ngModel)]="general.trombPrevio">Tratamiento Trombolítico Previo</md-slide-toggle>
+      </div>
+    </div>
+    <div class="row" *ngIf="general.trombPrevio">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="general.Estreptoquinasa">Estreptoquinasa</md-checkbox>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-checkbox [(ngModel)]="general.rTpa">r-Tpa</md-checkbox>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-slide-toggle [(ngModel)]="general.Inhibidores">Inhibidores IIb IIIa</md-slide-toggle>
+      </div>
+    </div>
+    <div class="row" *ngIf="general.Inhibidores">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-radio-group [(ngModel)]="general.TipoInhibidor">
+          <md-radio-button value="1">Eptifibatide</md-radio-button>
+          <md-radio-button value="2">Tirofiban</md-radio-button>
+          <md-radio-button value="3">Abciximab</md-radio-button>
+        </md-radio-group>
+      </div>
+    </div>
+    <div class="row" *ngIf="general.Inhibidores">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-radio-group [(ngModel)]="general.Bolo">
+          <md-radio-button value="1">Sólo Bolo</md-radio-button>
+          <md-radio-button value="2">Bolo EV</md-radio-button>
+          <md-radio-button value="3">Bolo Intracoronario</md-radio-button>
+          <md-radio-button value="4">Bolo e Infusión</md-radio-button>
+        </md-radio-group>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-slide-toggle [(ngModel)]="general.balonContrapulsacion">Balón de Contrapulsación Intraórtico</md-slide-toggle>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-slide-toggle [(ngModel)]="general.tromboAspiracion">Trombo-aspiración</md-slide-toggle>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" *ngIf="general.tromboAspiracion">
+        <md-input-container>
+          <input mdInput placeholder="Nombre del Dispositivo Utilizado" [(ngModel)]="general.DispositivoTrombo" required>
+        </md-input-container>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-radio-group [(ngModel)]="general.TronoPso" *ngIf="general.tromboAspiracion">
+          <md-radio-button value="1">Positiva</md-radio-button>
+          <md-radio-button value="2">Negativa</md-radio-button>
+        </md-radio-group>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <h4>Preparación de placa</h4>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <md-radio-group [(ngModel)]="general.preparacionPlaca">
+          <md-radio-button value="1"> NO (Stenting Directo)</md-radio-button>
+          <md-radio-button value="2">SI</md-radio-button>
+        </md-radio-group>
+      </div>
+    </div>
+    <div class="row" *ngIf="general.preparacionPlaca==2">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-radio-group [(ngModel)]="general.Ballon">
+          <md-radio-button value="1">Balón</md-radio-button>
+          <md-radio-button value="2">Cutting Balloon</md-radio-button>
+          <md-radio-button value="3">Angiosculp</md-radio-button>
+          <md-radio-button value="4">Rotablator</md-radio-button>
+          <md-radio-button value="5">OTROS</md-radio-button>
+        </md-radio-group>
+      </div>
+    </div>
+    <div class="row" *ngIf="general.preparacionPlaca==2 && general.Ballon==5">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <md-input-container>
+          <input mdInput placeholder="Nombre del Dispositivo Utilizado" [(ngModel)]="general.BallonOtron" required>
+        </md-input-container>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <h4>Otros Métodos Diagnósticos Utilizados</h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-slide-toggle [(ngModel)]="general.IVUS">IVUS</md-slide-toggle>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-slide-toggle [(ngModel)]="general.FFR">FFR</md-slide-toggle>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-slide-toggle [(ngModel)]="general.OCT">OCT</md-slide-toggle>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <md-slide-toggle [(ngModel)]="general.optimizacion">Optimización Stent (Stent Boost, Stent Clear, Stent Viz, etc.)</md-slide-toggle>
+      </div>
+    </div>
+  </div>
+</div>

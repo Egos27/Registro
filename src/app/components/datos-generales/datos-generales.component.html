@@ -1,0 +1,98 @@
+<div class="container">
+  <div class="container-fluid row" *ngIf="loading">
+    <app-loading class="col-xs-12 col-sm-offset-4 col-sm-4 col-lg-offset-4 col-lg-4"></app-loading>
+  </div>
+  <div class=“container-fluid” *ngIf="!loading">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <md-input-container>
+          <input mdInput placeholder="Nombre y Apellido" [(ngModel)]="nombre" required>
+        </md-input-container>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <md-input-container>
+          <input mdInput type="number" placeholder="Numero de Hitoria clinica" [(ngModel)]="historia" required>
+        </md-input-container>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <md-input-container>
+          <input mdInput type="tel" placeholder="Telefono" [(ngModel)]="telefono" required>
+        </md-input-container>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <md-input-container>
+          <input mdInput type="email" placeholder="Mail" [(ngModel)]="mail" required>
+        </md-input-container>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <md-input-container>
+          <input mdInput type="date" placeholder="Fecha ATC" [(ngModel)]="fechaATC" required>
+        </md-input-container>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <md-input-container>
+          <input mdInput type="number" placeholder="Edad" [(ngModel)]="edad" required>
+        </md-input-container>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <h4>Sexo</h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <md-radio-group [(ngModel)]="sexo">
+          <md-radio-button value="1">Femenino</md-radio-button>
+          <md-radio-button value="2">Masculino</md-radio-button>
+        </md-radio-group>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <md-input-container>
+          <input mdInput type="number" (change)="calculaIMC()" placeholder="Peso (en Kg)" [(ngModel)]="peso" required>
+        </md-input-container>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <md-input-container>
+          <input mdInput type="number" (change)="calculaIMC()" placeholder="Talla (en cm)" [(ngModel)]="talla" required>
+        </md-input-container>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <md-input-container>
+          <input mdInput type="number" placeholder="IMC" disabled  [(ngModel)]="IMC" required>
+        </md-input-container>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <h4>Indicación de la ATC</h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <md-radio-group [(ngModel)]="inicacionATC">
+          <md-radio-button value="1">Programada </md-radio-button>
+          <md-radio-button value="2">Urgente</md-radio-button>
+          <md-radio-button value="3">Emergencia</md-radio-button>
+        </md-radio-group>
+      </div>
+    </div>
+  </div>
+</div>
